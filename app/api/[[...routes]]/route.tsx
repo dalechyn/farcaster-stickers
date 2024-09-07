@@ -1,13 +1,16 @@
 /** @jsxImportSource frog/jsx */
 
 import { getCast } from "@/lib/actions/getCast";
-import { saveSticker } from "@/lib/actions/saveSticker";
 import { Frog } from "frog";
 import { devtools } from "frog/dev";
 // import { neynar } from 'frog/hubs'
 import { handle } from "frog/next";
 import { serveStatic } from "frog/serve-static";
 import { Box, HStack, Image, Text, VStack, vars } from "./ui";
+import { Background } from "./_components/Background";
+import { collection } from "./collection";
+import { collections } from "./collections";
+import { sticker } from "./sticker";
 
 const app = new Frog({
 	assetsPath: "/",
@@ -25,21 +28,6 @@ const app = new Frog({
 // Uncomment to use Edge Runtime
 // export const runtime = 'edge'
 //
-app.castAction(
-	"/action",
-	async (c) => {
-		await saveSticker({
-			key: c.actionData.fid.toString(),
-			stickerUrl: `${process.env.APP_URL}/api/cast/${c.actionData.castId.hash}`,
-		});
-		return c.message({ message: "You saved the cast as a sticker!" });
-	},
-	{
-		name: "Cast Stickers Action",
-		description: "You can save casts as stickers!",
-		icon: "file",
-	},
-);
 
 app.composerAction(
 	"/compose",
@@ -67,14 +55,7 @@ app.image("/cast/:hash", async (c) => {
 	})();
 	return c.res({
 		image: (
-			<Box
-				backgroundColor="background"
-				grow
-				height="100%"
-				padding="8"
-				width="100%"
-				alignVertical="center"
-			>
+			<Background>
 				<VStack padding="16" borderRadius="8" gap="8">
 					<HStack width="100%" gap="8" alignItems="center">
 						<Box
@@ -115,7 +96,7 @@ app.image("/cast/:hash", async (c) => {
 						</Text>
 					</Box>
 				</VStack>
-			</Box>
+			</Background>
 		),
 		imageOptions: {
 			height: (linesEstimate + 1) * 50,
@@ -123,6 +104,10 @@ app.image("/cast/:hash", async (c) => {
 		},
 	});
 });
+
+app.route("/sticker", sticker);
+app.route("/collection", collection);
+app.route("/collections", collections);
 
 devtools(app, { serveStatic });
 

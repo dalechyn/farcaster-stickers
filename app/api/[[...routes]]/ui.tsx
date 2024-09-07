@@ -10,6 +10,7 @@ export const { Box, VStack, HStack, Divider, Image, Text, vars } = createSystem(
 			text: "#ffffff",
 			background: "#17101f",
 			muted: "#8b99a4",
+			border: "#4c3a4e80",
 		},
 		fonts: {
 			default: [

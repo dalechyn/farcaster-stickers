@@ -26,7 +26,10 @@ sticker
 	.frame("/add/frame", (c) => {
 		return c.res({
 			image: "/add/frame/img",
-			intents: [<TextInput placeholder="🔥" />, <Button>Add</Button>],
+			intents: [
+				<TextInput placeholder="🔥" />,
+				<Button action="/added/frame">Add</Button>,
+			],
 		});
 	})
 	.image("/add/frame/img", (c) => {

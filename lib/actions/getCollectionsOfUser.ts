@@ -1,3 +1,4 @@
+"use server";
 import { redis } from "../db/redis";
 
 export type GetCollectionsOfUserParameters = { fid: number };

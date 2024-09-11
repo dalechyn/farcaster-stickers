@@ -12,12 +12,20 @@
   },
   "dependencies": {
     "@neynar/nodejs-sdk": "^1.52.0",
-    "frog": "0.17.1-fix-untrusted-composer-data-parsing.20240907T194447",
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@tanstack/react-query": "^5.55.0",
+    "@tanstack/react-query-next-experimental": "^5.55.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "frog": "^0.17.2",
     "hono": "^4",
     "ioredis": "^5.4.1",
+    "lucide-react": "^0.439.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "tailwind-merge": "^2.5.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {

@@ -1,3 +1,4 @@
+"use server";
 import { getCast } from "./getCast";
 import { getStickerUrlsOfCollection } from "./getStickerUrlsOfCollection";
 

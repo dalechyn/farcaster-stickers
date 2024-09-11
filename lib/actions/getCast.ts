@@ -1,3 +1,4 @@
+"use server";
 import { neynarClient } from "../neynar/neynarClient";
 import { resolveCache } from "./resolveCache";
 

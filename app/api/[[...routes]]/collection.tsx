@@ -35,9 +35,9 @@ collection
 						<Text size="32" weight="700">
 							{user.display_name}'s collection
 						</Text>
-						<Box padding="8" borderWidth="1" borderColor="border">
-							<Text size="24">Used by ? farcastoors</Text>
-						</Box>
+						{/* <Box padding="8" borderWidth="1" borderColor="border"> */}
+						{/* 	<Text size="24">Used by ? farcastoors</Text> */}
+						{/* </Box> */}
 						<VStack gap="8" grow>
 							<Text size="24">Saved stickers of:</Text>
 							<Box flexWrap="wrap" flexDirection="row" gap="6">

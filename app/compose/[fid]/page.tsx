@@ -61,12 +61,6 @@ export default function ComposeForm({
 												gap: "4px",
 											}}
 										>
-											<img
-												src={stickerUrl}
-												alt="Sticker"
-												height={157}
-												width={300}
-											/>
 											<CastButton
 												text={searchParams.text}
 												stickerImageSrc={stickerUrl}

@@ -58,7 +58,7 @@ collection
 			),
 			imageOptions: {
 				width: 1200,
-				height: 680,
+				height: 630,
 			},
 		});
 	});

@@ -14,7 +14,7 @@ collection
 		return c.res({
 			image: `/${c.req.param("key")}/showcase/img`,
 			intents: [
-				<Button action={`~/collections/save/${c.req.param("key")}`}>
+				<Button action={`~/collections/${c.req.param("key")}/save`}>
 					Save
 				</Button>,
 			],

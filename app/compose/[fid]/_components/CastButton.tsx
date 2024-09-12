@@ -16,10 +16,10 @@ export function CastButton(props: { text: string; stickerImageSrc: string }) {
 		>
 			<img
 				className="transition-all group-hover:opacity-50"
-				src={props.stickerImageSrc}
+				src={`${props.stickerImageSrc}/small`}
 				alt="Sticker"
 				height="100%"
-				width={600}
+				width={150}
 			/>
 		</button>
 	);

@@ -40,16 +40,19 @@ app.composerAction(
 	},
 	{
 		name: "Cast Stickers",
-		description: "Add cast stickers to your collection and use them",
+		description: "lmaoo",
 		icon: "file",
 		imageUrl: "",
 	},
 );
 
-app.image("/cast/:hash", async (c) => {
+app.image("/cast/:hash/:size?", async (c) => {
+	const size = c.req.param("size") ?? "normal";
 	const cast = await getCast(c.req.param("hash"));
 	const linesEstimate = (() => {
-		const linesEstimateFromSymbols = Math.ceil(cast.text.length / 50);
+		const linesEstimateFromSymbols = Math.ceil(
+			cast.text.length / (size === "small" ? 70 : 50),
+		);
 		const linesEstimateFromNewLines = cast.text.split("\n").length;
 		return linesEstimateFromSymbols + linesEstimateFromNewLines;
 	})();
@@ -99,8 +102,8 @@ app.image("/cast/:hash", async (c) => {
 			</Background>
 		),
 		imageOptions: {
-			height: (linesEstimate + 1) * 50,
-			width: 600,
+			height: (linesEstimate + 1) * (size === "small" ? 70 : 50),
+			width: size === "small" ? 300 : 600,
 		},
 	});
 });

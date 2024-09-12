@@ -6,12 +6,13 @@ import { Background } from "./_components/Background";
 import { Box, Image, Text, VStack } from "./ui";
 import { getCastoorsOfCollection } from "@/lib/actions/getCastoorsOfCollection";
 
-export const collection = new Frog({ title: "Collection", basePath: "/:key" });
+// basepath path param not supported by frog
+export const collection = new Frog({ title: "Collection" });
 
 collection
-	.frame("/showcase", (c) => {
+	.frame("/:key/showcase", (c) => {
 		return c.res({
-			image: `/showcase/${c.req.param("key")}/img`,
+			image: `/${c.req.param("key")}/showcase/img`,
 			intents: [
 				<Button action={`~/collections/save/${c.req.param("key")}`}>
 					Save
@@ -19,7 +20,7 @@ collection
 			],
 		});
 	})
-	.image("/showcase/img", async (c) => {
+	.image("/:key/showcase/img", async (c) => {
 		const [castoorsOfCollection, user] = await Promise.all([
 			getCastoorsOfCollection({
 				key: c.req.param("key"),

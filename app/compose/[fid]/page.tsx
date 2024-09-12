@@ -1,15 +1,18 @@
 "use client";
 import { CastButton } from "./_components/CastButton";
-import { useSuspenseGetUserQuery } from "./_hooks/useSuspenseGetUserQuery";
-import { useSuspenseGetCollectionsQuery } from "./_hooks/useSuspenseGetCollectionsQuery";
+import { useGetUserQuery } from "./_hooks/useGetUserQuery";
+import { useGetCollectionsQuery } from "./_hooks/useGetCollectionsQuery";
 
 export default function ComposeForm({
 	params,
 	searchParams,
 }: { params: { fid: string }; searchParams: { text: string } }) {
 	const fid = Number(params.fid);
-	const suspenseGetUserQuery = useSuspenseGetUserQuery({ fid });
-	const suspenseGetCollectionsQuery = useSuspenseGetCollectionsQuery({ fid });
+	const suspenseGetUserQuery = useGetUserQuery({ fid });
+	const suspenseGetCollectionsQuery = useGetCollectionsQuery({ fid });
+
+	if (!suspenseGetCollectionsQuery.isSuccess || !suspenseGetUserQuery.isSuccess)
+		return <>Loading...</>;
 
 	return (
 		<div>

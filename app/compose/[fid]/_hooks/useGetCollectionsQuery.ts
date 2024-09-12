@@ -1,10 +1,10 @@
 import { getCollectionsOfUser } from "@/lib/actions/getCollectionsOfUser";
 import { getStickerUrlsOfCollection } from "@/lib/actions/getStickerUrlsOfCollection";
 import { getUser } from "@/lib/actions/getUser";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
-export function useSuspenseGetCollectionsQuery(parameters: { fid: number }) {
-	return useSuspenseQuery({
+export function useGetCollectionsQuery(parameters: { fid: number }) {
+	return useQuery({
 		queryKey: ["getCollections", parameters.fid] as const,
 		queryFn: async ({ queryKey: [_name, fid] }) => {
 			const collectionKeys = await getCollectionsOfUser({ fid });

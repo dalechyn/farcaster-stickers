@@ -7,5 +7,5 @@ export type SaveCollectionParameters = {
 };
 export type SaveCollectionErrorType = Error;
 export async function saveCollection(parameters: SaveCollectionParameters) {
-	await redis.lpush(`collection:${parameters.fid}`, parameters.key);
+	await redis.lpush(`collections:${parameters.fid}`, parameters.key);
 }

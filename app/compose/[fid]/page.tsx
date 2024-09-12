@@ -23,18 +23,14 @@ export default function ComposeForm({
 				{suspenseGetCollectionsQuery.data.personalCollection.stickerUrls.map(
 					(stickerUrl, i) => {
 						return (
-							<div
-								className="border border-border/50 max-w-[60vw]"
+							<CastButton
 								key={`${stickerUrl}-${
 									// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 									i
 								}`}
-							>
-								<CastButton
-									text={searchParams.text}
-									stickerImageSrc={stickerUrl}
-								/>
-							</div>
+								text={searchParams.text}
+								stickerImageSrc={stickerUrl}
+							/>
 						);
 					},
 				)}
@@ -50,22 +46,14 @@ export default function ComposeForm({
 							>
 								{otherCollection.stickerUrls.map((stickerUrl, i) => {
 									return (
-										<div
+										<CastButton
 											key={`${stickerUrl}-${
 												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 												i
 											}`}
-											style={{
-												display: "flex",
-												flexDirection: "column",
-												gap: "4px",
-											}}
-										>
-											<CastButton
-												text={searchParams.text}
-												stickerImageSrc={stickerUrl}
-											/>
-										</div>
+											text={searchParams.text}
+											stickerImageSrc={stickerUrl}
+										/>
 									);
 								})}
 							</div>

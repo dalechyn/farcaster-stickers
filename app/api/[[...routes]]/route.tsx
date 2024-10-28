@@ -40,7 +40,7 @@ app.composerAction(
 	},
 	{
 		name: "Cast Stickers",
-		description: "lmaoo",
+		description: "Save casts and use them as stickers",
 		icon: "file",
 		imageUrl: "",
 	},

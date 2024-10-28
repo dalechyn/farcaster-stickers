@@ -17,7 +17,7 @@ sticker.castAction(
 		return c.message({ message: "Sticker saved!" });
 	},
 	{
-		name: "Cast Stickers Action",
+		name: "Cast Stickers",
 		description: "You can save casts as stickers!",
 		icon: "file",
 	},
